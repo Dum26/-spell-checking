@@ -1,0 +1,19 @@
+{
+  "name": "keymecsu-spelling",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "start:ollama": "node scripts/start-ollama.js",
+    "setup:qwen": "node scripts/setup-qwen.js",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./tailwind.css --minify",
+    "setup:spelling": ".venv-spelling/Scripts/python.exe scripts/setup-spelling-ai.py",
+    "build": "npm run build:css",
+    "build:dictionary": ".venv-spelling/Scripts/python.exe scripts/build-spelling-dictionary.py",
+    "test": "node --test server.test.js spellcheck.test.js spelling-ai.test.js spellcheck-ui.test.js ollama-spelling.test.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.0",
+    "tailwindcss": "4.3.3"
+  }
+}

@@ -1,0 +1,37 @@
+"use strict";
+const {test} = require('node:test');
+const assert = require('node:assert/strict');
+const {once} = require('node:events');
+
+test('spelling API validates input, calls the corrector and serves only public assets', async t => {
+  const ai = require('./spelling-ai');
+  const calls = [];
+  t.mock.method(ai,'correctSpelling',async text => { calls.push(text); return {candidates:[{model:'bartpho',text:'tôi muốn'}],elapsedMs:10}; });
+  const qwen = require('./ollama-spelling'), qwenCalls = [];
+  t.mock.method(qwen,'correctWithQwen',async text => { qwenCalls.push(text); return {candidates:[{model:'qwen3.5:2b',text:'tôi muốn'}],elapsedMs:20}; });
+  const server = require('./server');
+  server.listen(0,'127.0.0.1'); await once(server,'listening');
+  t.after(() => server.close());
+  const origin = `http://127.0.0.1:${server.address().port}`;
+  const post = (body, headers = {}) => fetch(origin+'/api/spelling',{method:'POST',headers:{'Content-Type':'application/json',...headers},body});
+  assert.equal((await fetch(origin+'/api/spelling')).status,405);
+  assert.equal((await post('{}',{Origin:'https://example.com'})).status,403);
+  assert.equal((await post('{}',{'Content-Type':'text/plain'})).status,415);
+  assert.equal((await post('{')).status,400);
+  for (const text of ['', ' '.repeat(10), 'a'.repeat(2001), Array(14).fill('a').join('\n')]) assert.equal((await post(JSON.stringify({text}))).status,422);
+  assert.equal((await post('a'.repeat(16001))).status,413);
+  const corrected = await post(JSON.stringify({text:'toi muon'}));
+  assert.equal(corrected.status,200); assert.equal((await corrected.json()).candidates[0].text,'tôi muốn');
+  assert.deepEqual(calls,['toi muon']);
+  for (const engine of ['unknown','',null,{},'http://example.com']) assert.equal((await post(JSON.stringify({text:'toi muon',engine}))).status,400);
+  const qwenResult = await post(JSON.stringify({text:'toi muon',engine:'qwen3.5'}));
+  assert.equal((await qwenResult.json()).candidates[0].model,'qwen3.5:2b');
+  assert.deepEqual(qwenCalls,['toi muon']); assert.deepEqual(calls,['toi muon']);
+  assert.equal((await fetch(origin+'/.spell-models/model.safetensors')).status,403);
+  for (const removed of ['/api/ocr','/ocr-app.js','/document-reader.js','/node_modules/pdfjs-dist/build/pdf.mjs','/database/chinhta.xlsx']) assert.equal((await fetch(origin+removed)).status,404);
+  const html = await (await fetch(origin)).text();
+  assert.match(html,/Sửa chính tả/u); assert.doesNotMatch(html,/ocr|pdf|type="file"/iu);
+  const dictionary = await fetch(origin+'/spelling-dictionary.json');
+  assert.match(dictionary.headers.get('content-type'),/application\/json/u);
+  assert.ok((await dictionary.json()).terms.includes('băng keo'));
+});

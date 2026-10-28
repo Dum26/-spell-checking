@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sửa chính tả | MECSU</title>
+  <link rel="stylesheet" href="/tailwind.css">
+</head>
+<body class="px-4 py-6 sm:px-8 sm:py-8">
+  <main class="mx-auto max-w-7xl">
+    <header class="mb-8 border-b border-slate-100 pb-6"><span class="text-sm font-semibold tracking-wide">MECSU CHÍNH TẢ</span></header>
+    <section class="mb-8" aria-labelledby="spell-title">
+      <h1 id="spell-title" class="text-2xl font-semibold tracking-tight">Sửa chính tả văn bản</h1>
+      <p class="mt-2 text-[13px] leading-6 text-slate-500">Tự sửa lỗi gõ Telex và từ thường gặp. Giữ nguyên mã, số và kích thước.</p>
+      <div class="mt-6 grid min-w-0 gap-6 lg:grid-cols-2">
+        <div class="min-w-0 rounded-xl border border-slate-200 bg-white p-4 sm:p-6">
+          <label for="spell-input" class="text-sm font-semibold">Nhập văn bản</label>
+          <textarea id="spell-input" maxlength="10000" spellcheck="false" class="mt-4 min-h-48 w-full rounded-lg border border-slate-200 bg-white p-4 text-[13px] leading-6" placeholder="Ví dụ: tans khoas m10, bulonh M8x30" aria-describedby="spell-help"></textarea>
+          <p id="spell-help" class="mt-2 text-xs leading-5 text-slate-500">Tối đa 10.000 ký tự. Kiểm tra sau khi bạn ngừng gõ 300 ms. Nội dung gốc được giữ nguyên.</p>
+          <label class="mt-4 flex items-center gap-3 text-[13px]"><input id="spell-ai" type="checkbox" checked> Tăng cường bằng AI (local)</label>
+          <label for="spell-engine" class="mt-4 block text-[13px] font-semibold">Mô hình sửa chính tả</label>
+          <select id="spell-engine" class="mt-2 min-h-11 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-[13px]" aria-describedby="spell-engine-help">
+            <option value="bartpho">BARTpho + database</option>
+            <option value="qwen3.5">Qwen3.5 2B · Ollama + database</option>
+          </select>
+          <p id="spell-engine-help" class="mt-2 text-xs leading-5 text-slate-500">BARTpho chạy trực tiếp tại máy.</p>
+          <p class="mt-2 text-xs leading-5 text-slate-500">AI chạy khi còn từ chưa nhận diện: tối đa 2.000 ký tự, 12 dòng. Lần đầu cần nạp model; CPU có thể mất vài giây.</p>
+        </div>
+        <div class="min-w-0 rounded-xl border border-slate-200 bg-white p-4 sm:p-6">
+          <div class="mb-4 flex items-center justify-between gap-3">
+            <h2 class="text-sm font-semibold">Văn bản đã sửa</h2>
+            <button id="spell-copy" type="button" class="app-button" disabled>Sao chép</button>
+          </div>
+          <pre id="spell-output" class="m-0 min-h-48 whitespace-pre-wrap break-words font-sans text-[13px] leading-6" aria-label="Bản sửa chính tả">Bản sửa sẽ hiện ở đây.</pre>
+          <p id="spell-status" class="mt-2 text-xs leading-5 text-slate-500" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="/spellcheck.js"></script>
+</body>
+</html>

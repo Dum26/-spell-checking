@@ -1,0 +1,62 @@
+"use strict";
+const {test} = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+
+test('automatic AI preserves newer input, copies the displayed result and can be disabled', async () => {
+  const nodes = new Map();
+  for (const id of ['spell-input','spell-output','spell-status','spell-copy','spell-ai','spell-engine','spell-engine-help']) {
+    nodes.set('#'+id, {value:'',textContent:'',checked:true,events:{},addEventListener(name,fn) { this.events[name]=fn; }});
+  }
+  nodes.get('#spell-engine').value='bartpho';
+  let now = 0, timerId = 0, copied;
+  const timers = new Map(), requests = [];
+  const flush = async () => { for (let i=0;i<8;i++) await Promise.resolve(); };
+  const advance = async milliseconds => {
+    now += milliseconds;
+    for (const [id, timer] of [...timers]) if (timer.at <= now) { timers.delete(id); timer.fn(); }
+    await flush();
+  };
+  vm.runInNewContext(fs.readFileSync('spellcheck.js','utf8'), {
+    document:{querySelector:id => nodes.get(id)}, performance:{now:()=>now}, AbortController,
+    navigator:{clipboard:{writeText:async text => { copied=text; }}},
+    setTimeout:(fn,ms) => { const id=++timerId; timers.set(id,{fn,at:now+ms}); return id; },
+    clearTimeout:id => timers.delete(id),
+    fetch:(url,options) => {
+      if (url === '/spelling-dictionary.json') return Promise.resolve({ok:true,json:async()=>({terms:['muốn'],variants:[]})});
+      return new Promise(resolve => requests.push({options,resolve}));
+    },
+  });
+  await flush();
+  const input = nodes.get('#spell-input'), output = nodes.get('#spell-output'), ai = nodes.get('#spell-ai');
+  const type = async text => { input.value=text; input.events.input(); await advance(300); };
+  await type('tans khoas M10'); await advance(1000);
+  assert.equal(output.textContent,'tán khoá M10'); assert.equal(requests.length,0);
+  await type('muón M10'); await advance(1000);
+  assert.equal(requests.length,1);
+  assert.equal(JSON.parse(requests[0].options.body).text,'muón M10');
+  await type('cắt M10');
+  assert.ok(requests[0].options.signal.aborted);
+  requests[0].resolve({ok:true,json:async()=>({candidates:[{model:'bartpho',text:'muốn M10'}],elapsedMs:20})});
+  await flush(); assert.equal(output.textContent,'cắt M10');
+  await type('muón M10'); await advance(1000);
+  requests[1].resolve({ok:true,json:async()=>({candidates:[{model:'bartpho',text:'muốn M10'}],elapsedMs:20})});
+  await flush(); assert.equal(output.textContent,'muốn M10'); assert.equal(input.value,'muón M10');
+  await nodes.get('#spell-copy').events.click(); assert.equal(copied,'muốn M10');
+  await type('tans muón M10'); await advance(1000);
+  assert.equal(JSON.parse(requests[2].options.body).text, 'tans muón M10', 'AI receives the original input rather than a dictionary guess');
+  assert.equal(output.textContent,'tán muón M10');
+  const engine = nodes.get('#spell-engine');
+  engine.value='qwen3.5'; engine.events.change(); await advance(1000);
+  assert.ok(requests[2].options.signal.aborted);
+  assert.equal(JSON.parse(requests[3].options.body).engine,'qwen3.5');
+  requests[3].resolve({ok:true,json:async()=>({candidates:[{model:'qwen3.5:2b',text:'tán muốn M10'}],elapsedMs:50})});
+  await flush(); assert.equal(output.textContent,'tán muốn M10');
+  ai.checked=false; ai.events.change(); await advance(1000);
+  assert.equal(output.textContent,'tán muón M10'); assert.equal(requests.length,4);
+  ai.checked=true; ai.events.change(); await advance(1000);
+  requests[4].resolve({ok:false,status:422,json:async()=>({error:'Chưa có model Ollama'})});
+  await flush(); assert.equal(output.textContent,'tán muón M10');
+  assert.match(nodes.get('#spell-status').textContent,/Chưa có model Ollama/);
+});

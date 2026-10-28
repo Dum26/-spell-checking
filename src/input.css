@@ -1,0 +1,62 @@
+@import "tailwindcss" source(none);
+@source "../index.html";
+
+@font-face {
+  font-family: "Inter Variable";
+  src: url("./fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Inter Variable", sans-serif;
+  --color-slate-50: #f4f2f4;
+  --color-slate-100: #e2e4e7;
+  --color-slate-200: #d2d7de;
+  --color-slate-300: #b4bcd0;
+  --color-slate-400: #8b93a1;
+  --color-slate-500: #6b6b6b;
+  --color-slate-600: #585a5c;
+  --color-slate-700: #3e3e44;
+  --color-slate-800: #2a2e33;
+  --color-slate-900: #191d20;
+  --color-slate-950: #080808;
+  --color-blue-50: #7170ff0d;
+  --color-blue-100: #6d78d526;
+  --color-blue-200: #7170ff40;
+  --color-blue-400: #828fff;
+  --color-blue-500: #7170ff;
+  --color-blue-600: #7170ff;
+  --color-blue-700: #5e6ad2;
+}
+
+@layer base {
+  body {
+    @apply min-h-screen bg-white font-sans text-slate-950 antialiased;
+    font-size: 13px;
+  }
+  button, summary, a, input, textarea {
+    &:focus-visible { @apply outline-2 outline-offset-4 outline-blue-600; }
+  }
+}
+
+@layer components {
+  .app-button {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-[13px] font-semibold leading-5 text-slate-800 transition-colors hover:border-slate-300 hover:bg-slate-50;
+  }
+  .app-button-primary {
+    @apply border-blue-600 bg-blue-600 text-slate-950 hover:border-blue-700 hover:bg-blue-400;
+  }
+  .app-button:disabled, label.app-button:has(input[type="file"]:disabled) {
+    @apply cursor-not-allowed border-slate-200 bg-slate-100 text-slate-500;
+  }
+  label.app-button:has(input[type="file"]:disabled) { pointer-events: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
