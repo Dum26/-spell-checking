@@ -1,0 +1,416 @@
+{
+  "engine": "qwen3",
+  "models": [
+    "qwen3:1.7b (Ollama tag)"
+  ],
+  "device": "Ollama",
+  "cases": 20,
+  "dictionaryPass": 14,
+  "modelPass": 8,
+  "combinedPass": 15,
+  "results": [
+    {
+      "input": "bugf lloong",
+      "expected": [
+        "bu lông",
+        "bulong"
+      ],
+      "dictionary": "bugf lông",
+      "model": "bugf lloong",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "bugf lloong"
+        }
+      ],
+      "combined": "bugf lông",
+      "applied": false,
+      "elapsedMs": 1063,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": false
+    },
+    {
+      "input": "bugf loong M10",
+      "expected": [
+        "bu lông M10",
+        "bulong M10"
+      ],
+      "dictionary": "bugf lông M10",
+      "model": "bugf loong M10",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "bugf loong M10"
+        }
+      ],
+      "combined": "bugf lông M10",
+      "applied": false,
+      "elapsedMs": 170,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": false
+    },
+    {
+      "input": "dunhg cui rut rivet",
+      "expected": [
+        "dụng cụ rút rivet"
+      ],
+      "dictionary": "dụng cụ rút rivet",
+      "model": "dunhg cui rut rivet",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "dunhg cui rut rivet"
+        }
+      ],
+      "combined": "dụng cụ rút rivet",
+      "applied": false,
+      "elapsedMs": 162,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "kim rut riveet 6201-2RS",
+      "expected": [
+        "kìm rút rivet 6201-2RS"
+      ],
+      "dictionary": "kìm rút rivet 6201-2RS",
+      "model": "kim rut riveet 6201-2RS",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "kim rut riveet 6201-2RS"
+        }
+      ],
+      "combined": "kìm rút rivet 6201-2RS",
+      "applied": false,
+      "elapsedMs": 226,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "vong bii 6201-2RS",
+      "expected": [
+        "vòng bi 6201-2RS"
+      ],
+      "dictionary": "vòng bii 6201-2RS",
+      "model": "vòng bi 6201-2RS",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "vòng bi 6201-2RS"
+        }
+      ],
+      "combined": "vòng bi 6201-2RS",
+      "applied": true,
+      "elapsedMs": 195,
+      "dictionaryPass": false,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "tôi muón mua M10",
+      "expected": [
+        "tôi muốn mua M10"
+      ],
+      "dictionary": "tôi muón mua M10",
+      "model": "tôi muón mua M10",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "tôi muón mua M10"
+        }
+      ],
+      "combined": "tôi muón mua M10",
+      "applied": false,
+      "elapsedMs": 184,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": false
+    },
+    {
+      "input": "toi muoomss mua dụng cu doa khoang cach",
+      "expected": [
+        "tôi muốn mua dụng cụ đo khoảng cách"
+      ],
+      "dictionary": "toi muoomss mua dụng cụ đo khoảng cách",
+      "model": "toi muoomss mua dụng cu doa khoang cach",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "toi muoomss mua dụng cu doa khoang cach"
+        }
+      ],
+      "combined": "toi muoomss mua dụng cụ đo khoảng cách",
+      "applied": false,
+      "elapsedMs": 225,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": false
+    },
+    {
+      "input": "tôi đnag cần mua vòng bi",
+      "expected": [
+        "tôi đang cần mua vòng bi"
+      ],
+      "dictionary": "tôi đnag cần mua vòng bi",
+      "model": "tôi đnag cần mua vòng bi",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "tôi đnag cần mua vòng bi"
+        }
+      ],
+      "combined": "tôi đnag cần mua vòng bi",
+      "applied": false,
+      "elapsedMs": 190,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": false
+    },
+    {
+      "input": "may khoagn cam tay",
+      "expected": [
+        "máy khoan cầm tay"
+      ],
+      "dictionary": "máy khoan cầm tay",
+      "model": "may khoang cam tay",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "may khoang cam tay"
+        }
+      ],
+      "combined": "máy khoan cầm tay",
+      "applied": false,
+      "elapsedMs": 140,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "ong khi nens",
+      "expected": [
+        "ống khí nén"
+      ],
+      "dictionary": "ống khí nén",
+      "model": "ong khi nens",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "ong khi nens"
+        }
+      ],
+      "combined": "ống khí nén",
+      "applied": false,
+      "elapsedMs": 130,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "tans khoas m10",
+      "expected": [
+        "tán khóa m10",
+        "tán khoá m10"
+      ],
+      "dictionary": "tán khóa m10",
+      "model": "Tàn khoas M10",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "Tàn khoas M10"
+        }
+      ],
+      "combined": "tán khóa m10",
+      "applied": false,
+      "elapsedMs": 159,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "bulonh M8x30",
+      "expected": [
+        "bulong M8x30"
+      ],
+      "dictionary": "bulong M8x30",
+      "model": "bulonh M8x30",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "bulonh M8x30"
+        }
+      ],
+      "combined": "bulong M8x30",
+      "applied": false,
+      "elapsedMs": 166,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "dụng cụ rút rivet",
+      "expected": [
+        "dụng cụ rút rivet"
+      ],
+      "dictionary": "dụng cụ rút rivet",
+      "model": "dụng cụ rút rivet",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "dụng cụ rút rivet"
+        }
+      ],
+      "combined": "dụng cụ rút rivet",
+      "applied": false,
+      "elapsedMs": 162,
+      "dictionaryPass": true,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "bu lông M10",
+      "expected": [
+        "bu lông M10"
+      ],
+      "dictionary": "bu lông M10",
+      "model": "bu lông M10",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "bu lông M10"
+        }
+      ],
+      "combined": "bu lông M10",
+      "applied": false,
+      "elapsedMs": 159,
+      "dictionaryPass": true,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "vòng bi 6201-2RS",
+      "expected": [
+        "vòng bi 6201-2RS"
+      ],
+      "dictionary": "vòng bi 6201-2RS",
+      "model": "vòng bi 6201-2RS",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "vòng bi 6201-2RS"
+        }
+      ],
+      "combined": "vòng bi 6201-2RS",
+      "applied": false,
+      "elapsedMs": 206,
+      "dictionaryPass": true,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "AirTac G1/4 SATA M10",
+      "expected": [
+        "AirTac G1/4 SATA M10"
+      ],
+      "dictionary": "AirTac G1/4 SATA M10",
+      "model": "AirTac G1/4 SATA M10",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "AirTac G1/4 SATA M10"
+        }
+      ],
+      "combined": "AirTac G1/4 SATA M10",
+      "applied": false,
+      "elapsedMs": 186,
+      "dictionaryPass": true,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "dao doa lỗ",
+      "expected": [
+        "dao doa lỗ"
+      ],
+      "dictionary": "dao doa lỗ",
+      "model": "dao doa lỗ",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "dao doa lỗ"
+        }
+      ],
+      "combined": "dao doa lỗ",
+      "applied": false,
+      "elapsedMs": 147,
+      "dictionaryPass": true,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "tôi muốn mua M10",
+      "expected": [
+        "tôi muốn mua M10"
+      ],
+      "dictionary": "tôi muốn mua M10",
+      "model": "tôi muốn mua M10",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "tôi muốn mua M10"
+        }
+      ],
+      "combined": "tôi muốn mua M10",
+      "applied": false,
+      "elapsedMs": 164,
+      "dictionaryPass": true,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "dụng cụ dò khoảng cách",
+      "expected": [
+        "dụng cụ dò khoảng cách"
+      ],
+      "dictionary": "dụng cụ dò khoảng cách",
+      "model": "dụng cụ dò khoảng cách",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "dụng cụ dò khoảng cách"
+        }
+      ],
+      "combined": "dụng cụ dò khoảng cách",
+      "applied": false,
+      "elapsedMs": 157,
+      "dictionaryPass": true,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "bu lông M10\r\nvòng bi 6201-2RS",
+      "expected": [
+        "bu lông M10\r\nvòng bi 6201-2RS"
+      ],
+      "dictionary": "bu lông M10\r\nvòng bi 6201-2RS",
+      "model": "bu lông M10\nvòng bi 6201-2RS",
+      "candidates": [
+        {
+          "model": "qwen3:1.7b",
+          "text": "bu lông M10\nvòng bi 6201-2RS"
+        }
+      ],
+      "combined": "bu lông M10\r\nvòng bi 6201-2RS",
+      "applied": false,
+      "elapsedMs": 268,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    }
+  ]
+}

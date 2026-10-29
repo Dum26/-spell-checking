@@ -10,7 +10,7 @@ function stopSpellingAi() {
   child?.kill(); workerPid = undefined;
   if (pending) { const task = pending; pending = undefined; clearTimeout(task.timer); task.reject(new Error('AI đã dừng.')); }
 }
-function correctSpelling(text) {
+function requestSpellingAi(payload, timeoutMs) {
   if (pending) return Promise.reject(Object.assign(new Error('AI đang xử lý lượt trước; vui lòng thử lại.'), {statusCode:503}));
   if (!worker) {
     const python = process.env.SPELLING_PYTHON || path.join(__dirname, '.venv-spelling', 'Scripts', 'python.exe');
@@ -38,8 +38,13 @@ function correctSpelling(text) {
     child.stdin.on('error', () => { if (worker === child) stopSpellingAi(); });
   }
   return new Promise((resolve, reject) => {
-    pending = {resolve,reject,timer:setTimeout(stopSpellingAi,120000)};
-    worker.stdin.write(JSON.stringify({text}) + '\n');
+    pending = {resolve,reject,timer:setTimeout(stopSpellingAi,timeoutMs)};
+    worker.stdin.write(JSON.stringify(payload) + '\n');
   });
 }
-module.exports = {correctSpelling, stopSpellingAi};
+function correctSpelling(text, engine = 'bartpho') {
+  if (!['bartpho','vn-base','bartpho-protonx'].includes(engine)) return Promise.reject(Object.assign(new Error('Mô hình sửa chính tả không hợp lệ.'), {statusCode:400}));
+  return requestSpellingAi({text,engine},120000);
+}
+function warmSpellingAi() { return requestSpellingAi({warmup:true},300000); }
+module.exports = {correctSpelling, warmSpellingAi, stopSpellingAi};

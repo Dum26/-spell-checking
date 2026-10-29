@@ -1,0 +1,895 @@
+{
+  "snapshotDate": "2026-10-29",
+  "metric": "Exact output match, case-sensitive, accepted alternatives listed per case; no user suggestion clicks counted.",
+  "cases": 20,
+  "rows": [
+    {
+      "engine": "dictionary",
+      "correct": 14,
+      "total": 20,
+      "typosCorrect": 6,
+      "typosTotal": 12,
+      "cleanPreserved": 8,
+      "cleanTotal": 8,
+      "results": [
+        {
+          "input": "bugf lloong",
+          "expected": [
+            "bu lông",
+            "bulong"
+          ],
+          "output": "bugf lông",
+          "pass": false
+        },
+        {
+          "input": "bugf loong M10",
+          "expected": [
+            "bu lông M10",
+            "bulong M10"
+          ],
+          "output": "bugf lông M10",
+          "pass": false
+        },
+        {
+          "input": "dunhg cui rut rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "kim rut riveet 6201-2RS",
+          "expected": [
+            "kìm rút rivet 6201-2RS"
+          ],
+          "output": "kìm rút rivet 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "vong bii 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bii 6201-2RS",
+          "pass": false
+        },
+        {
+          "input": "tôi muón mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "tôi muón mua M10",
+          "pass": false
+        },
+        {
+          "input": "toi muoomss mua dụng cu doa khoang cach",
+          "expected": [
+            "tôi muốn mua dụng cụ đo khoảng cách"
+          ],
+          "output": "toi muoomss mua dụng cụ đo khoảng cách",
+          "pass": false
+        },
+        {
+          "input": "tôi đnag cần mua vòng bi",
+          "expected": [
+            "tôi đang cần mua vòng bi"
+          ],
+          "output": "tôi đnag cần mua vòng bi",
+          "pass": false
+        },
+        {
+          "input": "may khoagn cam tay",
+          "expected": [
+            "máy khoan cầm tay"
+          ],
+          "output": "máy khoan cầm tay",
+          "pass": true
+        },
+        {
+          "input": "ong khi nens",
+          "expected": [
+            "ống khí nén"
+          ],
+          "output": "ống khí nén",
+          "pass": true
+        },
+        {
+          "input": "tans khoas m10",
+          "expected": [
+            "tán khóa m10",
+            "tán khoá m10"
+          ],
+          "output": "tán khóa m10",
+          "pass": true
+        },
+        {
+          "input": "bulonh M8x30",
+          "expected": [
+            "bulong M8x30"
+          ],
+          "output": "bulong M8x30",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ rút rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10",
+          "expected": [
+            "bu lông M10"
+          ],
+          "output": "bu lông M10",
+          "pass": true
+        },
+        {
+          "input": "vòng bi 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bi 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "AirTac G1/4 SATA M10",
+          "expected": [
+            "AirTac G1/4 SATA M10"
+          ],
+          "output": "AirTac G1/4 SATA M10",
+          "pass": true
+        },
+        {
+          "input": "dao doa lỗ",
+          "expected": [
+            "dao doa lỗ"
+          ],
+          "output": "dao doa lỗ",
+          "pass": true
+        },
+        {
+          "input": "tôi muốn mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "tôi muốn mua M10",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ dò khoảng cách",
+          "expected": [
+            "dụng cụ dò khoảng cách"
+          ],
+          "output": "dụng cụ dò khoảng cách",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10\r\nvòng bi 6201-2RS",
+          "expected": [
+            "bu lông M10\r\nvòng bi 6201-2RS"
+          ],
+          "output": "bu lông M10\r\nvòng bi 6201-2RS",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "engine": "vn-base",
+      "correct": 17,
+      "total": 20,
+      "typosCorrect": 9,
+      "typosTotal": 12,
+      "cleanPreserved": 8,
+      "cleanTotal": 8,
+      "results": [
+        {
+          "input": "bugf lloong",
+          "expected": [
+            "bu lông",
+            "bulong"
+          ],
+          "output": "bugf lông",
+          "pass": false
+        },
+        {
+          "input": "bugf loong M10",
+          "expected": [
+            "bu lông M10",
+            "bulong M10"
+          ],
+          "output": "bugf lông M10",
+          "pass": false
+        },
+        {
+          "input": "dunhg cui rut rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "kim rut riveet 6201-2RS",
+          "expected": [
+            "kìm rút rivet 6201-2RS"
+          ],
+          "output": "kìm rút rivet 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "vong bii 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bi 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "tôi muón mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "tôi muốn mua M10",
+          "pass": true
+        },
+        {
+          "input": "toi muoomss mua dụng cu doa khoang cach",
+          "expected": [
+            "tôi muốn mua dụng cụ đo khoảng cách"
+          ],
+          "output": "toi muoomss mua dụng cụ đo khoảng cách",
+          "pass": false
+        },
+        {
+          "input": "tôi đnag cần mua vòng bi",
+          "expected": [
+            "tôi đang cần mua vòng bi"
+          ],
+          "output": "tôi đang cần mua vòng bi",
+          "pass": true
+        },
+        {
+          "input": "may khoagn cam tay",
+          "expected": [
+            "máy khoan cầm tay"
+          ],
+          "output": "máy khoan cầm tay",
+          "pass": true
+        },
+        {
+          "input": "ong khi nens",
+          "expected": [
+            "ống khí nén"
+          ],
+          "output": "ống khí nén",
+          "pass": true
+        },
+        {
+          "input": "tans khoas m10",
+          "expected": [
+            "tán khóa m10",
+            "tán khoá m10"
+          ],
+          "output": "tán khóa m10",
+          "pass": true
+        },
+        {
+          "input": "bulonh M8x30",
+          "expected": [
+            "bulong M8x30"
+          ],
+          "output": "bulong M8x30",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ rút rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10",
+          "expected": [
+            "bu lông M10"
+          ],
+          "output": "bu lông M10",
+          "pass": true
+        },
+        {
+          "input": "vòng bi 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bi 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "AirTac G1/4 SATA M10",
+          "expected": [
+            "AirTac G1/4 SATA M10"
+          ],
+          "output": "AirTac G1/4 SATA M10",
+          "pass": true
+        },
+        {
+          "input": "dao doa lỗ",
+          "expected": [
+            "dao doa lỗ"
+          ],
+          "output": "dao doa lỗ",
+          "pass": true
+        },
+        {
+          "input": "tôi muốn mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "tôi muốn mua M10",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ dò khoảng cách",
+          "expected": [
+            "dụng cụ dò khoảng cách"
+          ],
+          "output": "dụng cụ dò khoảng cách",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10\r\nvòng bi 6201-2RS",
+          "expected": [
+            "bu lông M10\r\nvòng bi 6201-2RS"
+          ],
+          "output": "bu lông M10\r\nvòng bi 6201-2RS",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "engine": "bartpho",
+      "correct": 14,
+      "total": 20,
+      "typosCorrect": 6,
+      "typosTotal": 12,
+      "cleanPreserved": 8,
+      "cleanTotal": 8,
+      "results": [
+        {
+          "input": "bugf lloong",
+          "expected": [
+            "bu lông",
+            "bulong"
+          ],
+          "output": "bugf lông",
+          "pass": false
+        },
+        {
+          "input": "bugf loong M10",
+          "expected": [
+            "bu lông M10",
+            "bulong M10"
+          ],
+          "output": "bugf lông M10",
+          "pass": false
+        },
+        {
+          "input": "dunhg cui rut rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "kim rut riveet 6201-2RS",
+          "expected": [
+            "kìm rút rivet 6201-2RS"
+          ],
+          "output": "kìm rút rivet 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "vong bii 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bii 6201-2RS",
+          "pass": false
+        },
+        {
+          "input": "tôi muón mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "Tôi muốn mua M10",
+          "pass": false
+        },
+        {
+          "input": "toi muoomss mua dụng cu doa khoang cach",
+          "expected": [
+            "tôi muốn mua dụng cụ đo khoảng cách"
+          ],
+          "output": "toi muoomss mua dụng cụ đo khoảng cách",
+          "pass": false
+        },
+        {
+          "input": "tôi đnag cần mua vòng bi",
+          "expected": [
+            "tôi đang cần mua vòng bi"
+          ],
+          "output": "Tôi đang cần mua vòng bi",
+          "pass": false
+        },
+        {
+          "input": "may khoagn cam tay",
+          "expected": [
+            "máy khoan cầm tay"
+          ],
+          "output": "máy khoan cầm tay",
+          "pass": true
+        },
+        {
+          "input": "ong khi nens",
+          "expected": [
+            "ống khí nén"
+          ],
+          "output": "ống khí nén",
+          "pass": true
+        },
+        {
+          "input": "tans khoas m10",
+          "expected": [
+            "tán khóa m10",
+            "tán khoá m10"
+          ],
+          "output": "tán khóa m10",
+          "pass": true
+        },
+        {
+          "input": "bulonh M8x30",
+          "expected": [
+            "bulong M8x30"
+          ],
+          "output": "bulong M8x30",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ rút rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10",
+          "expected": [
+            "bu lông M10"
+          ],
+          "output": "bu lông M10",
+          "pass": true
+        },
+        {
+          "input": "vòng bi 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bi 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "AirTac G1/4 SATA M10",
+          "expected": [
+            "AirTac G1/4 SATA M10"
+          ],
+          "output": "AirTac G1/4 SATA M10",
+          "pass": true
+        },
+        {
+          "input": "dao doa lỗ",
+          "expected": [
+            "dao doa lỗ"
+          ],
+          "output": "dao doa lỗ",
+          "pass": true
+        },
+        {
+          "input": "tôi muốn mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "tôi muốn mua M10",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ dò khoảng cách",
+          "expected": [
+            "dụng cụ dò khoảng cách"
+          ],
+          "output": "dụng cụ dò khoảng cách",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10\r\nvòng bi 6201-2RS",
+          "expected": [
+            "bu lông M10\r\nvòng bi 6201-2RS"
+          ],
+          "output": "bu lông M10\r\nvòng bi 6201-2RS",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "engine": "bartpho-protonx",
+      "correct": 17,
+      "total": 20,
+      "typosCorrect": 9,
+      "typosTotal": 12,
+      "cleanPreserved": 8,
+      "cleanTotal": 8,
+      "results": [
+        {
+          "input": "bugf lloong",
+          "expected": [
+            "bu lông",
+            "bulong"
+          ],
+          "output": "bugf lông",
+          "pass": false
+        },
+        {
+          "input": "bugf loong M10",
+          "expected": [
+            "bu lông M10",
+            "bulong M10"
+          ],
+          "output": "bugf lông M10",
+          "pass": false
+        },
+        {
+          "input": "dunhg cui rut rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "kim rut riveet 6201-2RS",
+          "expected": [
+            "kìm rút rivet 6201-2RS"
+          ],
+          "output": "kìm rút rivet 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "vong bii 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bi 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "tôi muón mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "tôi muốn mua M10",
+          "pass": true
+        },
+        {
+          "input": "toi muoomss mua dụng cu doa khoang cach",
+          "expected": [
+            "tôi muốn mua dụng cụ đo khoảng cách"
+          ],
+          "output": "toi muoomss mua dụng cụ đo khoảng cách",
+          "pass": false
+        },
+        {
+          "input": "tôi đnag cần mua vòng bi",
+          "expected": [
+            "tôi đang cần mua vòng bi"
+          ],
+          "output": "tôi đang cần mua vòng bi",
+          "pass": true
+        },
+        {
+          "input": "may khoagn cam tay",
+          "expected": [
+            "máy khoan cầm tay"
+          ],
+          "output": "máy khoan cầm tay",
+          "pass": true
+        },
+        {
+          "input": "ong khi nens",
+          "expected": [
+            "ống khí nén"
+          ],
+          "output": "ống khí nén",
+          "pass": true
+        },
+        {
+          "input": "tans khoas m10",
+          "expected": [
+            "tán khóa m10",
+            "tán khoá m10"
+          ],
+          "output": "tán khóa m10",
+          "pass": true
+        },
+        {
+          "input": "bulonh M8x30",
+          "expected": [
+            "bulong M8x30"
+          ],
+          "output": "bulong M8x30",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ rút rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10",
+          "expected": [
+            "bu lông M10"
+          ],
+          "output": "bu lông M10",
+          "pass": true
+        },
+        {
+          "input": "vòng bi 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bi 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "AirTac G1/4 SATA M10",
+          "expected": [
+            "AirTac G1/4 SATA M10"
+          ],
+          "output": "AirTac G1/4 SATA M10",
+          "pass": true
+        },
+        {
+          "input": "dao doa lỗ",
+          "expected": [
+            "dao doa lỗ"
+          ],
+          "output": "dao doa lỗ",
+          "pass": true
+        },
+        {
+          "input": "tôi muốn mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "tôi muốn mua M10",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ dò khoảng cách",
+          "expected": [
+            "dụng cụ dò khoảng cách"
+          ],
+          "output": "dụng cụ dò khoảng cách",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10\r\nvòng bi 6201-2RS",
+          "expected": [
+            "bu lông M10\r\nvòng bi 6201-2RS"
+          ],
+          "output": "bu lông M10\r\nvòng bi 6201-2RS",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "engine": "qwen3",
+      "correct": 15,
+      "total": 20,
+      "typosCorrect": 7,
+      "typosTotal": 12,
+      "cleanPreserved": 8,
+      "cleanTotal": 8,
+      "results": [
+        {
+          "input": "bugf lloong",
+          "expected": [
+            "bu lông",
+            "bulong"
+          ],
+          "output": "bugf lông",
+          "pass": false
+        },
+        {
+          "input": "bugf loong M10",
+          "expected": [
+            "bu lông M10",
+            "bulong M10"
+          ],
+          "output": "bugf lông M10",
+          "pass": false
+        },
+        {
+          "input": "dunhg cui rut rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "kim rut riveet 6201-2RS",
+          "expected": [
+            "kìm rút rivet 6201-2RS"
+          ],
+          "output": "kìm rút rivet 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "vong bii 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bi 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "tôi muón mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "tôi muón mua M10",
+          "pass": false
+        },
+        {
+          "input": "toi muoomss mua dụng cu doa khoang cach",
+          "expected": [
+            "tôi muốn mua dụng cụ đo khoảng cách"
+          ],
+          "output": "toi muoomss mua dụng cụ đo khoảng cách",
+          "pass": false
+        },
+        {
+          "input": "tôi đnag cần mua vòng bi",
+          "expected": [
+            "tôi đang cần mua vòng bi"
+          ],
+          "output": "tôi đnag cần mua vòng bi",
+          "pass": false
+        },
+        {
+          "input": "may khoagn cam tay",
+          "expected": [
+            "máy khoan cầm tay"
+          ],
+          "output": "máy khoan cầm tay",
+          "pass": true
+        },
+        {
+          "input": "ong khi nens",
+          "expected": [
+            "ống khí nén"
+          ],
+          "output": "ống khí nén",
+          "pass": true
+        },
+        {
+          "input": "tans khoas m10",
+          "expected": [
+            "tán khóa m10",
+            "tán khoá m10"
+          ],
+          "output": "tán khóa m10",
+          "pass": true
+        },
+        {
+          "input": "bulonh M8x30",
+          "expected": [
+            "bulong M8x30"
+          ],
+          "output": "bulong M8x30",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ rút rivet",
+          "expected": [
+            "dụng cụ rút rivet"
+          ],
+          "output": "dụng cụ rút rivet",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10",
+          "expected": [
+            "bu lông M10"
+          ],
+          "output": "bu lông M10",
+          "pass": true
+        },
+        {
+          "input": "vòng bi 6201-2RS",
+          "expected": [
+            "vòng bi 6201-2RS"
+          ],
+          "output": "vòng bi 6201-2RS",
+          "pass": true
+        },
+        {
+          "input": "AirTac G1/4 SATA M10",
+          "expected": [
+            "AirTac G1/4 SATA M10"
+          ],
+          "output": "AirTac G1/4 SATA M10",
+          "pass": true
+        },
+        {
+          "input": "dao doa lỗ",
+          "expected": [
+            "dao doa lỗ"
+          ],
+          "output": "dao doa lỗ",
+          "pass": true
+        },
+        {
+          "input": "tôi muốn mua M10",
+          "expected": [
+            "tôi muốn mua M10"
+          ],
+          "output": "tôi muốn mua M10",
+          "pass": true
+        },
+        {
+          "input": "dụng cụ dò khoảng cách",
+          "expected": [
+            "dụng cụ dò khoảng cách"
+          ],
+          "output": "dụng cụ dò khoảng cách",
+          "pass": true
+        },
+        {
+          "input": "bu lông M10\r\nvòng bi 6201-2RS",
+          "expected": [
+            "bu lông M10\r\nvòng bi 6201-2RS"
+          ],
+          "output": "bu lông M10\r\nvòng bi 6201-2RS",
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "rawModels": [
+    {
+      "model": "VN Base",
+      "correct": 10
+    },
+    {
+      "model": "BARTpho",
+      "correct": 2
+    },
+    {
+      "model": "ProtonX",
+      "correct": 11
+    },
+    {
+      "model": "Qwen3-1.7B",
+      "correct": 8
+    }
+  ]
+}

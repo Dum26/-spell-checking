@@ -90,3 +90,28 @@ test('context matching refuses competing phrases and preserves supplied accents'
   assert.equal(check('dao doa lỗ').text,'dao doa lỗ');
   assert.equal(check('dụng cụ dò khoảng cách').text,'dụng cụ dò khoảng cách');
 });
+
+test('fuzzy catalog matching handles multiple typos and offers uncertain short phrases without guessing', () => {
+  const {setDictionary} = require('./spellcheck');
+  setDictionary(require('./spelling-dictionary.json'));
+  assert.equal(check('dunhg cui rut rivet M10').text,'dụng cụ rút rivet M10');
+  assert.equal(check('dunhg cui rut rivet; dunhg cui rut rivet').text,'dụng cụ rút rivet; dụng cụ rút rivet');
+  assert.equal(check('kim rut riveet 6201-2RS').text,'kìm rút rivet 6201-2RS');
+  const result = check('bugf lloong M10');
+  const suggestion = result.suggestions.find(item=>item.text==='bu lông');
+  assert.ok(suggestion);
+  assert.equal(apply(result.source,[{...suggestion,after:suggestion.text}]),'bu lông M10');
+  assert.notEqual(result.text,'bu lông M10','severe short typos require the user to choose');
+  const repeated = check('bugf lloong; bugf lloong');
+  assert.ok(repeated.suggestions.some(item=>item.start===13 && item.end===24 && item.text==='bu lông'));
+  for (const input of ['AirTac G1/4 SATA M10','zzzzzz qwerty', 'bugf\nlloong', 'bugf, lloong']) {
+    assert.equal(check(input).suggestions.length,0,input);
+  }
+  assert.ok(check('vong bii M12').suggestions.some(item=>item.text==='vòng bi'));
+  assert.equal(check('a'.repeat(4999)+' '+'a'.repeat(5000)).suggestions.length,0);
+  setDictionary({terms:['dụng cụ đo khoảng cách','dụng cụ dò khoảng cách'],variants:[]});
+  const ambiguous = check('dunhg cui do khoang cach');
+  assert.ok(!ambiguous.changes.some(change=>change.after.includes('khoảng cách')));
+  assert.equal(ambiguous.suggestions.length,2);
+  assert.equal(check('dụng cụ dò khoảng cách').text,'dụng cụ dò khoảng cách');
+});

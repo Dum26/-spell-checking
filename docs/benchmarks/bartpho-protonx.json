@@ -1,0 +1,497 @@
+{
+  "engine": "bartpho-protonx",
+  "models": [
+    "bmd1905/vietnamese-correction-v2@a3d342348d39d87622aa58aabd07de38ade8c17b",
+    "protonx-models/protonx-legal-tc@2007b3f3e577dcbebf0e5c435bfe041584920cd1"
+  ],
+  "device": "CPU INT8",
+  "cases": 20,
+  "dictionaryPass": 14,
+  "modelPass": 2,
+  "combinedPass": 17,
+  "results": [
+    {
+      "input": "bugf lloong",
+      "expected": [
+        "bu lông",
+        "bulong"
+      ],
+      "dictionary": "bugf lông",
+      "model": "Bugf loong",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Bugf loong"
+        },
+        {
+          "model": "protonx",
+          "text": "building"
+        }
+      ],
+      "combined": "bugf lông",
+      "applied": false,
+      "elapsedMs": 15570,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": false
+    },
+    {
+      "input": "bugf loong M10",
+      "expected": [
+        "bu lông M10",
+        "bulong M10"
+      ],
+      "dictionary": "bugf lông M10",
+      "model": "Bug loong M10",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Bug loong M10"
+        },
+        {
+          "model": "protonx",
+          "text": "building M10"
+        }
+      ],
+      "combined": "bugf lông M10",
+      "applied": false,
+      "elapsedMs": 453,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": false
+    },
+    {
+      "input": "dunhg cui rut rivet",
+      "expected": [
+        "dụng cụ rút rivet"
+      ],
+      "dictionary": "dụng cụ rút rivet",
+      "model": "duong cui rut rivet",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "duong cui rut rivet"
+        },
+        {
+          "model": "protonx",
+          "text": "dụng cụ rút rivet"
+        }
+      ],
+      "combined": "dụng cụ rút rivet",
+      "applied": false,
+      "elapsedMs": 460,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "kim rut riveet 6201-2RS",
+      "expected": [
+        "kìm rút rivet 6201-2RS"
+      ],
+      "dictionary": "kìm rút rivet 6201-2RS",
+      "model": "Kimrut Reevet 6201-2RS",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Kimrut Reevet 6201-2RS"
+        },
+        {
+          "model": "protonx",
+          "text": "kim rút rifet 6201-2RS"
+        }
+      ],
+      "combined": "kìm rút rivet 6201-2RS",
+      "applied": false,
+      "elapsedMs": 788,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "vong bii 6201-2RS",
+      "expected": [
+        "vòng bi 6201-2RS"
+      ],
+      "dictionary": "vòng bii 6201-2RS",
+      "model": "vong bii : 6201-2RS",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "vong bii : 6201-2RS"
+        },
+        {
+          "model": "protonx",
+          "text": "vòng bi 6201-2RS"
+        }
+      ],
+      "combined": "vòng bi 6201-2RS",
+      "applied": true,
+      "elapsedMs": 641,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "tôi muón mua M10",
+      "expected": [
+        "tôi muốn mua M10"
+      ],
+      "dictionary": "tôi muón mua M10",
+      "model": "Tôi muốn mua M10",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Tôi muốn mua M10"
+        },
+        {
+          "model": "protonx",
+          "text": "tôi muốn mua M10"
+        }
+      ],
+      "combined": "tôi muốn mua M10",
+      "applied": true,
+      "elapsedMs": 476,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "toi muoomss mua dụng cu doa khoang cach",
+      "expected": [
+        "tôi muốn mua dụng cụ đo khoảng cách"
+      ],
+      "dictionary": "toi muoomss mua dụng cụ đo khoảng cách",
+      "model": "Tôi muốn sớm mua dụng cu doa khoang cach",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Tôi muốn sớm mua dụng cu doa khoang cach"
+        },
+        {
+          "model": "protonx",
+          "text": "tôi muoomss mua dụng cụ dọa khoảng cách"
+        }
+      ],
+      "combined": "toi muoomss mua dụng cụ đo khoảng cách",
+      "applied": false,
+      "elapsedMs": 720,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": false
+    },
+    {
+      "input": "tôi đnag cần mua vòng bi",
+      "expected": [
+        "tôi đang cần mua vòng bi"
+      ],
+      "dictionary": "tôi đnag cần mua vòng bi",
+      "model": "Tôi đang cần mua vòng bi",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Tôi đang cần mua vòng bi"
+        },
+        {
+          "model": "protonx",
+          "text": "tôi đang cần mua vòng bi"
+        }
+      ],
+      "combined": "tôi đang cần mua vòng bi",
+      "applied": true,
+      "elapsedMs": 475,
+      "dictionaryPass": false,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "may khoagn cam tay",
+      "expected": [
+        "máy khoan cầm tay"
+      ],
+      "dictionary": "máy khoan cầm tay",
+      "model": "May khoan cầm tay",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "May khoan cầm tay"
+        },
+        {
+          "model": "protonx",
+          "text": "máy khoagn cầm tay"
+        }
+      ],
+      "combined": "máy khoan cầm tay",
+      "applied": false,
+      "elapsedMs": 412,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "ong khi nens",
+      "expected": [
+        "ống khí nén"
+      ],
+      "dictionary": "ống khí nén",
+      "model": "ong khi",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "ong khi"
+        },
+        {
+          "model": "protonx",
+          "text": "ống khí nén"
+        }
+      ],
+      "combined": "ống khí nén",
+      "applied": false,
+      "elapsedMs": 326,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "tans khoas m10",
+      "expected": [
+        "tán khóa m10",
+        "tán khoá m10"
+      ],
+      "dictionary": "tán khóa m10",
+      "model": "tans khoas 10",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "tans khoas 10"
+        },
+        {
+          "model": "protonx",
+          "text": "tans khoas m10"
+        }
+      ],
+      "combined": "tán khóa m10",
+      "applied": false,
+      "elapsedMs": 484,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "bulonh M8x30",
+      "expected": [
+        "bulong M8x30"
+      ],
+      "dictionary": "bulong M8x30",
+      "model": "Bulonh : 8x30",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Bulonh : 8x30"
+        },
+        {
+          "model": "protonx",
+          "text": "building M8x30"
+        }
+      ],
+      "combined": "bulong M8x30",
+      "applied": false,
+      "elapsedMs": 533,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "dụng cụ rút rivet",
+      "expected": [
+        "dụng cụ rút rivet"
+      ],
+      "dictionary": "dụng cụ rút rivet",
+      "model": "Dụng cụ rút ruột",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Dụng cụ rút ruột"
+        },
+        {
+          "model": "protonx",
+          "text": "dụng cụ rút rivet"
+        }
+      ],
+      "combined": "dụng cụ rút rivet",
+      "applied": false,
+      "elapsedMs": 390,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "bu lông M10",
+      "expected": [
+        "bu lông M10"
+      ],
+      "dictionary": "bu lông M10",
+      "model": "búp lông M10",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "búp lông M10"
+        },
+        {
+          "model": "protonx",
+          "text": "bu lông M10"
+        }
+      ],
+      "combined": "bu lông M10",
+      "applied": false,
+      "elapsedMs": 402,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "vòng bi 6201-2RS",
+      "expected": [
+        "vòng bi 6201-2RS"
+      ],
+      "dictionary": "vòng bi 6201-2RS",
+      "model": "vòng bi 6201-2RS",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "vòng bi 6201-2RS"
+        },
+        {
+          "model": "protonx",
+          "text": "vòng bi 6201-2RS"
+        }
+      ],
+      "combined": "vòng bi 6201-2RS",
+      "applied": false,
+      "elapsedMs": 545,
+      "dictionaryPass": true,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "AirTac G1/4 SATA M10",
+      "expected": [
+        "AirTac G1/4 SATA M10"
+      ],
+      "dictionary": "AirTac G1/4 SATA M10",
+      "model": "AirTac G1/4 SATA M10",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "AirTac G1/4 SATA M10"
+        },
+        {
+          "model": "protonx",
+          "text": "AirTac G1/4 SATA M10"
+        }
+      ],
+      "combined": "AirTac G1/4 SATA M10",
+      "applied": false,
+      "elapsedMs": 688,
+      "dictionaryPass": true,
+      "modelPass": true,
+      "combinedPass": true
+    },
+    {
+      "input": "dao doa lỗ",
+      "expected": [
+        "dao doa lỗ"
+      ],
+      "dictionary": "dao doa lỗ",
+      "model": "dao lỗ",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "dao lỗ"
+        },
+        {
+          "model": "protonx",
+          "text": "đào khoét lỗ"
+        }
+      ],
+      "combined": "dao doa lỗ",
+      "applied": false,
+      "elapsedMs": 318,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "tôi muốn mua M10",
+      "expected": [
+        "tôi muốn mua M10"
+      ],
+      "dictionary": "tôi muốn mua M10",
+      "model": "Tôi muốn mua M10",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Tôi muốn mua M10"
+        },
+        {
+          "model": "protonx",
+          "text": "tôi muốn mua M10"
+        }
+      ],
+      "combined": "tôi muốn mua M10",
+      "applied": false,
+      "elapsedMs": 461,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "dụng cụ dò khoảng cách",
+      "expected": [
+        "dụng cụ dò khoảng cách"
+      ],
+      "dictionary": "dụng cụ dò khoảng cách",
+      "model": "Dụng cụ dò khoảng cách",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "Dụng cụ dò khoảng cách"
+        },
+        {
+          "model": "protonx",
+          "text": "dụng cụ đo khoảng cách"
+        }
+      ],
+      "combined": "dụng cụ dò khoảng cách",
+      "applied": false,
+      "elapsedMs": 452,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    },
+    {
+      "input": "bu lông M10\r\nvòng bi 6201-2RS",
+      "expected": [
+        "bu lông M10\r\nvòng bi 6201-2RS"
+      ],
+      "dictionary": "bu lông M10\r\nvòng bi 6201-2RS",
+      "model": "búp lông M10\r\nvòng bi 6201-2RS",
+      "candidates": [
+        {
+          "model": "bartpho",
+          "text": "búp lông M10\r\nvòng bi 6201-2RS"
+        },
+        {
+          "model": "protonx",
+          "text": "bu lông M10\r\nvòng bi 6201-2RS"
+        }
+      ],
+      "combined": "bu lông M10\r\nvòng bi 6201-2RS",
+      "applied": false,
+      "elapsedMs": 988,
+      "dictionaryPass": true,
+      "modelPass": false,
+      "combinedPass": true
+    }
+  ]
+}

@@ -3,39 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sửa chính tả | MECSU</title>
+  <meta name="theme-color" content="#edf2f5">
+  <title>Sửa chính tả tiếng Việt</title>
   <link rel="stylesheet" href="/tailwind.css">
 </head>
-<body class="px-4 py-6 sm:px-8 sm:py-8">
-  <main class="mx-auto max-w-7xl">
-    <header class="mb-8 border-b border-slate-100 pb-6"><span class="text-sm font-semibold tracking-wide">MECSU CHÍNH TẢ</span></header>
-    <section class="mb-8" aria-labelledby="spell-title">
-      <h1 id="spell-title" class="text-2xl font-semibold tracking-tight">Sửa chính tả văn bản</h1>
-      <p class="mt-2 text-[13px] leading-6 text-slate-500">Tự sửa lỗi gõ Telex và từ thường gặp. Giữ nguyên mã, số và kích thước.</p>
-      <div class="mt-6 grid min-w-0 gap-6 lg:grid-cols-2">
-        <div class="min-w-0 rounded-xl border border-slate-200 bg-white p-4 sm:p-6">
-          <label for="spell-input" class="text-sm font-semibold">Nhập văn bản</label>
-          <textarea id="spell-input" maxlength="10000" spellcheck="false" class="mt-4 min-h-48 w-full rounded-lg border border-slate-200 bg-white p-4 text-[13px] leading-6" placeholder="Ví dụ: tans khoas m10, bulonh M8x30" aria-describedby="spell-help"></textarea>
-          <p id="spell-help" class="mt-2 text-xs leading-5 text-slate-500">Tối đa 10.000 ký tự. Kiểm tra sau khi bạn ngừng gõ 300 ms. Nội dung gốc được giữ nguyên.</p>
-          <label class="mt-4 flex items-center gap-3 text-[13px]"><input id="spell-ai" type="checkbox" checked> Tăng cường bằng AI (local)</label>
-          <label for="spell-engine" class="mt-4 block text-[13px] font-semibold">Mô hình sửa chính tả</label>
-          <select id="spell-engine" class="mt-2 min-h-11 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-[13px]" aria-describedby="spell-engine-help">
-            <option value="bartpho">BARTpho + database</option>
-            <option value="qwen3.5">Qwen3.5 2B · Ollama + database</option>
-          </select>
-          <p id="spell-engine-help" class="mt-2 text-xs leading-5 text-slate-500">BARTpho chạy trực tiếp tại máy.</p>
-          <p class="mt-2 text-xs leading-5 text-slate-500">AI chạy khi còn từ chưa nhận diện: tối đa 2.000 ký tự, 12 dòng. Lần đầu cần nạp model; CPU có thể mất vài giây.</p>
+<body>
+  <main class="workspace">
+    <header class="page-header">
+      <div class="heading-group">
+        <span class="app-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none"><path d="M7 20h14M8 15l8-8 4 4-8 8H8v-4Z"/><path d="m14 9 4 4"/></svg>
+        </span>
+        <div>
+          <h1 id="spell-title">Sửa chính tả</h1>
+          <p class="page-description">Chỉnh đúng câu chữ, giữ nguyên tên hàng.</p>
         </div>
-        <div class="min-w-0 rounded-xl border border-slate-200 bg-white p-4 sm:p-6">
-          <div class="mb-4 flex items-center justify-between gap-3">
-            <h2 class="text-sm font-semibold">Văn bản đã sửa</h2>
-            <button id="spell-copy" type="button" class="app-button" disabled>Sao chép</button>
+      </div>
+      <span class="local-badge">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4.5" y="8.5" width="11" height="8" rx="2"/><path d="M7 8.5V6a3 3 0 0 1 6 0v2.5M10 12v1"/></svg>
+        Xử lý trên máy
+      </span>
+    </header>
+    <section class="editor" aria-labelledby="spell-title">
+      <div class="editor-toolbar">
+        <label class="ai-control" for="spell-ai">
+          <input id="spell-ai" type="checkbox" role="switch" checked>
+          <span>Hỗ trợ bằng AI<span class="control-description">Kiểm tra thêm theo ngữ cảnh</span></span>
+        </label>
+        <div class="model-picker">
+          <label for="spell-engine">Mô hình</label>
+          <select id="spell-engine" aria-describedby="spell-engine-help">
+            <option value="vn-base" selected>VN Spell Correction Base + database</option>
+            <option value="bartpho">BARTpho + database</option>
+            <option value="bartpho-protonx">BARTpho + ProtonX + database</option>
+            <option value="qwen3">Qwen3-1.7B · Ollama + database</option>
+          </select>
+        </div>
+      </div>
+      <div class="editor-panes">
+        <div class="editor-pane input-pane">
+          <div class="pane-header">
+            <label for="spell-input">Văn bản gốc</label>
+            <span class="pane-hint">Nhập hoặc dán văn bản</span>
           </div>
-          <pre id="spell-output" class="m-0 min-h-48 whitespace-pre-wrap break-words font-sans text-[13px] leading-6" aria-label="Bản sửa chính tả">Bản sửa sẽ hiện ở đây.</pre>
-          <p id="spell-status" class="mt-2 text-xs leading-5 text-slate-500" role="status" aria-live="polite"></p>
+          <textarea id="spell-input" maxlength="10000" spellcheck="false" placeholder="Ví dụ: dunhg cui rut rivet M10" aria-describedby="spell-help"></textarea>
+          <div class="pane-footer">
+            <p id="spell-help">Tự kiểm tra khi bạn ngừng gõ 300 ms.</p>
+            <span>Tối đa 10.000 ký tự</span>
+          </div>
+        </div>
+        <div class="editor-pane output-pane">
+          <div class="pane-header">
+            <h2>Kết quả</h2>
+            <button id="spell-copy" type="button" class="app-button copy-button" disabled>
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="9" height="10" rx="2"/><path d="M12 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/></svg>
+              Sao chép
+            </button>
+          </div>
+          <pre id="spell-output" aria-label="Bản sửa chính tả">Bản sửa sẽ hiện ở đây.</pre>
+          <p id="spell-status" role="status" aria-live="polite"></p>
+          <div id="spell-suggestions" aria-label="Gợi ý tên hàng"></div>
+          <div class="output-note">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m10 2.5 6 2v5c0 4-6 7.5-6 7.5S4 13.5 4 9.5v-5l6-2Z"/><path d="m7.5 9.5 1.8 1.8 3.2-3.6"/></svg>
+            Giữ nguyên mã hàng, số và kích thước.
+          </div>
         </div>
       </div>
     </section>
+    <footer class="workspace-footer">
+      <p class="original-note">Nội dung gốc luôn được giữ nguyên.</p>
+      <details class="model-details">
+        <summary>Chi tiết xử lý<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+        <div class="details-content">
+          <p id="spell-engine-help">Model chạy trực tiếp trên máy.</p>
+          <p>AI nhận tối đa 2.000 ký tự và 12 dòng mỗi lượt. Các model được nạp sẵn khi khởi động ứng dụng.</p>
+          <p id="spell-model-status" role="status" aria-live="polite"></p>
+        </div>
+      </details>
+    </footer>
   </main>
   <script src="/spellcheck.js"></script>
 </body>

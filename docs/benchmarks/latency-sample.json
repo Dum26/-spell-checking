@@ -1,0 +1,52 @@
+[
+  {
+    "engine": "vn-base",
+    "wallMs": 327,
+    "elapsedMs": 279,
+    "models": [
+      "vn-base"
+    ]
+  },
+  {
+    "engine": "bartpho",
+    "wallMs": 260,
+    "elapsedMs": 249,
+    "models": [
+      "bartpho"
+    ]
+  },
+  {
+    "engine": "bartpho-protonx",
+    "wallMs": 476,
+    "elapsedMs": 450,
+    "models": [
+      "bartpho",
+      "protonx"
+    ]
+  },
+  {
+    "engine": "qwen3",
+    "wallMs": 508,
+    "elapsedMs": 497,
+    "models": [
+      "qwen3:1.7b"
+    ]
+  },
+  {
+    "engine": "vn-base",
+    "wallMs": 170,
+    "elapsedMs": 162,
+    "models": [
+      "vn-base"
+    ]
+  },
+  {
+    "engine": "bartpho-protonx",
+    "wallMs": 458,
+    "elapsedMs": 441,
+    "models": [
+      "bartpho",
+      "protonx"
+    ]
+  }
+]

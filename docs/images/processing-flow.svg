@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1260" viewBox="0 0 1200 1260" role="img" aria-label="Từ văn bản gốc đến bản sửa">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="none" stroke="#7890a3" stroke-width="1.5"/></marker></defs>
+<rect width="1200" height="1260" rx="24" fill="#f3f7fa"/>
+<g font-family="Segoe UI, Arial, sans-serif" fill="#1c3142">
+<text x="60" y="66" font-size="30" font-weight="650">Từ văn bản gốc đến bản sửa</text>
+<text x="60" y="104" font-size="18" fill="#607786">Database xử lý trước. AI chỉ bổ sung khi còn từ chưa nhận diện.</text>
+<rect x="390" y="150" width="420" height="60" rx="14" fill="#fff" stroke="#cddce6" stroke-width="1.5"/>
+<text x="600.0" y="187.0" text-anchor="middle" font-size="20" font-weight="600">Nhập văn bản gốc</text>
+<path d="M600 210 V260" fill="none" stroke="#7890a3" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="330" y="260" width="540" height="80" rx="14" fill="#e8f0ff" stroke="#91b1ed" stroke-width="1.5"/>
+<text x="600.0" y="292" text-anchor="middle" font-size="20" font-weight="600">Bộ dò database trong trình duyệt</text>
+<text x="600.0" y="321" font-size="17" text-anchor="middle" fill="#526f82">Telex · ánh xạ chuẩn · dò gần đúng cả cụm</text>
+<path d="M600 340 V380" fill="none" stroke="#7890a3" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M600 380 760 440 600 500 440 440Z" fill="#edf5f1" stroke="#a8c8bb" stroke-width="1.5"/>
+<text x="600" y="435" font-size="18" text-anchor="middle" fill="#1c3142">Còn từ lạ</text>
+<text x="600" y="462" font-size="18" text-anchor="middle" fill="#1c3142">và AI đang bật?</text>
+<path d="M760 440 H1100 V1182 H810" fill="none" stroke="#7890a3" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="885" y="421" font-size="17" text-anchor="middle" fill="#607786">Không: dùng bản từ điển</text>
+<path d="M600 500 V550" fill="none" stroke="#7890a3" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="640" y="533" font-size="17" text-anchor="middle" fill="#607786">Có</text>
+<rect x="130" y="550" width="900" height="190" rx="18" fill="#e8eef4"/>
+<text x="580" y="583" font-size="19" text-anchor="middle" fill="#1c3142">Gửi văn bản gốc tới lựa chọn AI</text>
+<rect x="160" y="610" width="510" height="95" rx="14" fill="#fff" stroke="#cddce6" stroke-width="1.5"/>
+<text x="415.0" y="642" text-anchor="middle" font-size="20" font-weight="600">Worker Python · CPU INT8</text>
+<text x="415.0" y="671" font-size="17" text-anchor="middle" fill="#526f82">VN Base / BARTpho / BARTpho + ProtonX</text>
+<rect x="695" y="610" width="305" height="95" rx="14" fill="#fff" stroke="#cddce6" stroke-width="1.5"/>
+<text x="847.5" y="642" text-anchor="middle" font-size="20" font-weight="600">Ollama local</text>
+<text x="847.5" y="671" font-size="17" text-anchor="middle" fill="#526f82">Qwen3-1.7B · CPU/GPU</text>
+<path d="M600 740 V790" fill="none" stroke="#7890a3" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="270" y="790" width="660" height="90" rx="14" fill="#e8f0ff" stroke="#91b1ed" stroke-width="1.5"/>
+<text x="600.0" y="822" text-anchor="middle" font-size="20" font-weight="600">Lọc ứng viên và kiểm tra lại database</text>
+<text x="600.0" y="851" font-size="17" text-anchor="middle" fill="#526f82">Giữ mã hàng, số, dấu câu, số từ và xuống dòng</text>
+<path d="M600 880 V910" fill="none" stroke="#7890a3" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M600 910 760 970 600 1030 440 970Z" fill="#edf5f1" stroke="#a8c8bb" stroke-width="1.5"/>
+<text x="600" y="965" font-size="18" text-anchor="middle" fill="#1c3142">An toàn và giảm số</text>
+<text x="600" y="992" font-size="18" text-anchor="middle" fill="#1c3142">từ chưa nhận diện?</text>
+<path d="M440 970 H200 V1182 H390" fill="none" stroke="#7890a3" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="290" y="947" font-size="17" text-anchor="middle" fill="#607786">Có: áp dụng bản sửa</text>
+<path d="M760 970 H1100" fill="none" stroke="#7890a3" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="921" y="947" font-size="17" text-anchor="middle" fill="#607786">Không / đồng hạng</text>
+<rect x="390" y="1150" width="420" height="64" rx="14" fill="#e8f0ff" stroke="#91b1ed" stroke-width="1.5"/>
+<text x="600.0" y="1189.0" text-anchor="middle" font-size="20" font-weight="600">Hiển thị kết quả và gợi ý</text>
+<text x="60" y="1236" font-size="17" text-anchor="start" fill="#607786">BARTpho + ProtonX đọc cùng đầu vào, không sửa nối tiếp. Gợi ý cần người dùng chọn.</text>
+</g></svg>

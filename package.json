@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "start:ollama": "node scripts/start-ollama.js",
-    "setup:qwen": "node scripts/setup-qwen.js",
+    "start:ollama": "ollama serve",
+    "setup:qwen": "ollama pull qwen3:1.7b",
     "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./tailwind.css --minify",
-    "setup:spelling": ".venv-spelling/Scripts/python.exe scripts/setup-spelling-ai.py",
+    "setup:spelling": ".venv-spelling\\Scripts\\python.exe scripts/setup-spelling-ai.py",
+    "setup:vn": ".venv-spelling\\Scripts\\python.exe scripts/setup-spelling-ai.py vn-base",
+    "setup:bartpho-protonx": ".venv-spelling\\Scripts\\python.exe scripts/setup-spelling-ai.py bartpho protonx",
     "build": "npm run build:css",
     "build:dictionary": ".venv-spelling/Scripts/python.exe scripts/build-spelling-dictionary.py",
     "test": "node --test server.test.js spellcheck.test.js spelling-ai.test.js spellcheck-ui.test.js ollama-spelling.test.js"
